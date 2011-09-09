@@ -100,6 +100,8 @@ thead.thead-top td, 	thead.thead-top th {
 	font-size: 11px
 	}
 
+#table-container tbody tr{height:210px}
+
 tbody tr:hover {
 	background-color: #f9f9f9;
 }
@@ -134,7 +136,7 @@ td em {
 }
 tbody td {
 	font-size: 12px;
-	vertical-align: middle;
+	vertical-align: top;
 	font-weight: bold;
 	color: #333;
 }
@@ -525,8 +527,14 @@ tr.featured th span.featured {
 	text-decoration: underline;
 }
 
-
-
+ul.a{display:inline-block;list-style:none;position:absolute;margin:0 0 0 -600px;width:600px;line-height:19px}
+ul.a li{display:inline-block;vertical-align:top;width:250px;margin:0;padding:0;}
+ul.a li ul.h li{display:block !important;margin:0;padding:0;width:100%;}
+ul.a li:first-child{border-right:1px solid #666;color:#666}
+ul.a li:last-child ul.h li{padding-left:30px}
+ul li ul.h li:first-child{border:0;color:inherit}
+ul li ul.h li:last-child{padding:0}
+ul.a li ul.h li:nth-child(even){background:#eee}
 
 .up {
 	color: green;
