@@ -42,7 +42,7 @@ Ext = {
 		
 		if(this.inOptions) {
 			$('wrapper').style.marginLeft = $('wrapper').style.marginRight ='auto';
-			tableContainer.setHTML('<h3 style="position: absolute; top: 1px; left: 0px;">My Extensions &rarr; Options</h3><table class="table-options" style="display:'+(this.getTotal() >0 ? 'auto' : 'none')+'" border="0" cellspacing="0" id="table" summary="myExtensions"><thead><th colspan="2">Extension</th><td>Remove</td></tr></thead><tbody></tbody></table>');
+			tableContainer.setHTML('<h3 style="position: absolute; top: 1px; left: 0px;">My Extensions &rarr; Options</h3><table class="table-options zy" style="display:'+(this.getTotal() >0 ? 'auto' : 'none')+'" border="0" cellspacing="0" id="table" summary="myExtensions"><thead><th colspan="2">Extension</th><td>Remove</td></tr></thead><tbody></tbody></table>');
 			this.checkExtensionsCount();
 			
 			// Add some handlers
@@ -1484,7 +1484,7 @@ var strlenno = totalstr.length;
 var html 		= ['<th><img src="'+this.img+'" title="'+this.title+' logo" width="16" height="16" /></th>'];
 			html.push('<th><div class="link"><a '+(this.author ? 'title="By '+this.author+'"' : '') + ' target="_blank" href="https://chrome.google.com/extensions/detail/'+this.hash+'">' + this.title + '</a></th>');
 			//</div><div class="version">V: ' + this.version + (versionDT ? '<dt>' + versionDT + '</dt>' : '')+'</div></th>');
-			html.push('<td><em class="foo" onclick="Ext.remove(\''+this.hash+'\')">Remove</em></td><br /><br /><ul class="a"><li>Number of Footprints (Reviews + Ratings)<br />Number of Reviews<br />Number of Ratings<br />Number of Users<br />Probability of a Footprint<br />Probability of a Review<br />Probability of a Rating<br />Average size of a review</li><li><ul class="h"><li>'+(this.comments.total+this.ratings.total)+'</li><li>'+this.comments.total+'</li><li>'+this.ratings.total+'</li><li>'+this.users.total+'</li><li>'+Math.round(((this.comments.total+this.ratings.total)/this.users.total)*10000)/100+'%</li><li>'+Math.round((this.comments.total/this.users.total)*10000)/100+'%</li><li>'+Math.round((this.ratings.total/this.users.total)*10000)/100+'%</li><li>'+Math.round(strlenno/counttot)+' characters</li></ul></li></ul></td></tr>');
+			html.push('<td class="zy"><em class="foo" onclick="Ext.remove(\''+this.hash+'\')">Remove</em></td><br /><br /><ul class="a"><li>Number of Footprints (Reviews + Ratings)<br />Number of Reviews<br />Number of Ratings<br />Number of Users<br />Probability of a Footprint<br />Probability of a Review<br />Probability of a Rating<br />Average size of a review</li><li><ul class="h"><li>'+(this.comments.total+this.ratings.total)+'</li><li>'+this.comments.total+'</li><li>'+this.ratings.total+'</li><li>'+this.users.total+'</li><li>'+Math.round(((this.comments.total+this.ratings.total)/this.users.total)*10000)/100+'%</li><li>'+Math.round((this.comments.total/this.users.total)*10000)/100+'%</li><li>'+Math.round((this.ratings.total/this.users.total)*10000)/100+'%</li><li>'+Math.round(strlenno/counttot)+' characters</li></ul></li></ul></td></tr>');
 			row.setHTML(html.join('\n')).injectIn(tbody)		 	
 		 	
 		}
