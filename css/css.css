@@ -100,7 +100,9 @@ thead.thead-top td, 	thead.thead-top th {
 	font-size: 11px
 	}
 
-#table-container tbody tr{height:210px}
+
+#table tbody tr{height:auto}
+.zy tbody tr{height:210px !important}
 
 tbody tr:hover {
 	background-color: #f9f9f9;
