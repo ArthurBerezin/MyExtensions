@@ -35,7 +35,7 @@ Ext = {
 
 		
 	initialize	: function(force) {
-		this.load();	
+		this.load();
 		var tableContainer 	= $('table-container');
 		
 	
@@ -161,7 +161,6 @@ Ext = {
 				(!Ext.options.compact ? 
 				'<thead><th class="cell-img"></th><th class="sort sort-asc cell-link">Extension or Theme</th><td class="cell-rank-popularity sort">Popularity</td><td class="cell-rank-rating sort">Rating<td class="cell-users sort"><dfn title="(Weekly) Computed from update pings in the last week">Users</dfn></td><td class="cell-installs sort"><dfn title="Number of installs in the last week">Installs</dfn></td><td colspan="2" style="text-align: center; sort" class="sort cell-thead-ratings">Ratings</td><td class="cell-comments sort"><img src="img/cell-feedback.png" /></td></tr></thead>'  : 
 				'<thead><th class="cell-img"></th><th class="sort sort-asc cell-link">Extension or Theme</th><td colspan="2" style="text-align: center;width: 135px;" class="sort cell-thead-version">Version</td><td colspan="2" style="text-align: center;" class="sort cell-thead-ratings">Ratings</td><td class="cell-comments sort"><img src="img/cell-feedback.png" /></td></tr></thead>' ) +
-				
 				
 				'<tbody></tbody></table><span id="update"><div style="color: #999;overflow: hidden;margin-top: 10px;"><span style="float: left;"><button onclick="Ext.Bg.update()" title="Update extensions now" id="update-now">update now</button>  <span class="foo" id="mark" onclick="Ext.seen()">Reset badges</span></span><div style="float: right; margin-top: 5px;">' + (!Ext.options.compact && this.options.interval != -1 ? 'Auto updates every '+this.intervals[this.options.interval]+' - ' : '') +  '<span id="last-updated"></span></div></div><div id="tip">TIP: '+Ext.tips[ Math.floor(Math.random() * Ext.tips.length) ]+'</div>');
 				
@@ -1150,6 +1149,11 @@ Ext.Extension = new Class({
 				if($('total-users')) {
 					$('total-users').innerHTML = Ext.getTotalUsers();
 				}
+
+if($('florian')) {
+					$('florian').innerHTML = this.users.total;
+				}
+
 				//if()
 			
 
@@ -1293,14 +1297,14 @@ Ext.Extension = new Class({
 				
 				
 				var diff 	= this.users && this.users.previous ? this.users.total - this.users.previous : 0;
-				var _class	= '';
+				var klass	= '';
 				var title 	= 'no change';
 				if(diff) {
-					_class = diff > 0 ? ' up' : ' down';
+					klass = diff > 0 ? ' up' : ' down';
 					title = diff > 0  ? ' +' + diff.toFormatted(',') : diff.toFormatted(',');
 				}
 				
-				html.push('<td class="cell-users'+_class+'" title="'+title+'"><div>' + Number((this.users.total || 0).toString().replace(/,/, '').toInt()).toFormatted(',') +  '</div></td>'); 		
+				html.push('<td class="cell-users'+klass+'" title="'+title+'"><div>' + Number((this.users.total || 0).toString().replace(/,/, '').toInt()).toFormatted(',') +  '</div></td>'); 		
 				// Installs
 				// title="'+(this.installs && this.installs.previous && this.installs.previous != this.installs.total ? 'Was '+this.installs.previous : '')+'"
 				html.push('<td class="cell-installs" ><div>' + Number((this.installs.total || 0).toString().replace(/,/, '').toInt()).toFormatted(',') + '</div></td>'); 		// Installs
@@ -1382,10 +1386,105 @@ Ext.Extension = new Class({
 				
 		}
 		else {
-			var html 		= ['<th><img src="'+this.img+'" title="'+this.title+' logo" width="16" height="16" /></th>'];
+
+
+//TOTAL STRINGS
+var strlen0 = (this.comments.latest0 && this.comments.latest0.comment ? this.comments.latest0.comment.replace(/\n/gi, '')  : '');if(strlen0 == ''){var count0 = 0;}else{var count0 = 1;}
+var strlen1 = (this.comments.latest1 && this.comments.latest1.comment ? this.comments.latest1.comment.replace(/\n/gi, '')  : '');if(strlen1 == ''){var count1 = 0;}else{var count1 = 1;}
+var strlen2 = (this.comments.latest2 && this.comments.latest2.comment ? this.comments.latest2.comment.replace(/\n/gi, '')  : '');if(strlen2 == ''){var count2= 0;}else{var count2 = 1;}
+var strlen3 = (this.comments.latest3 && this.comments.latest3.comment ? this.comments.latest3.comment.replace(/\n/gi, '')  : '');if(strlen3 == ''){var count3= 0;}else{var count3 = 1;}
+var strlen4 = (this.comments.latest4 && this.comments.latest4.comment ? this.comments.latest4.comment.replace(/\n/gi, '')  : '');if(strlen4 == ''){var count4= 0;}else{var count4 = 1;}
+var strlen5 = (this.comments.latest5 && this.comments.latest5.comment ? this.comments.latest5.comment.replace(/\n/gi, '')  : '');if(strlen5 == ''){var count5= 0;}else{var count5 = 1;}
+var strlen6 = (this.comments.latest6 && this.comments.latest6.comment ? this.comments.latest6.comment.replace(/\n/gi, '')  : '');if(strlen6 == ''){var count6= 0;}else{var count6 = 1;}
+var strlen7 = (this.comments.latest7 && this.comments.latest7.comment ? this.comments.latest7.comment.replace(/\n/gi, '')  : '');if(strlen7 == ''){var count7= 0;}else{var count7 = 1;}
+var strlen8 = (this.comments.latest8 && this.comments.latest8.comment ? this.comments.latest8.comment.replace(/\n/gi, '')  : '');if(strlen8 == ''){var count8= 0;}else{var count8 = 1;}
+var strlen9 = (this.comments.latest9 && this.comments.latest9.comment ? this.comments.latest9.comment.replace(/\n/gi, '')  : '');if(strlen9 == ''){var count9= 0;}else{var count9 = 1;}
+var strlen10 = (this.comments.latest10 && this.comments.latest10.comment ? this.comments.latest10.comment.replace(/\n/gi, '')  : '');if(strlen10 == ''){var count10= 0;}else{var count10 = 1;}
+var strlen11 = (this.comments.latest11 && this.comments.latest11.comment ? this.comments.latest11.comment.replace(/\n/gi, '')  : '');if(strlen11 == ''){var count11= 0;}else{var count11 = 1;}
+var strlen12 = (this.comments.latest12 && this.comments.latest12.comment ? this.comments.latest12.comment.replace(/\n/gi, '')  : '');if(strlen12 == ''){var count12= 0;}else{var count12 = 1;}
+var strlen13 = (this.comments.latest13 && this.comments.latest13.comment ? this.comments.latest13.comment.replace(/\n/gi, '')  : '');if(strlen13 == ''){var count13= 0;}else{var count13 = 1;}
+var strlen14 = (this.comments.latest14 && this.comments.latest14.comment ? this.comments.latest14.comment.replace(/\n/gi, '')  : '');if(strlen14 == ''){var count14= 0;}else{var count14 = 1;}
+var strlen15 = (this.comments.latest15 && this.comments.latest15.comment ? this.comments.latest15.comment.replace(/\n/gi, '')  : '');if(strlen15 == ''){var count15= 0;}else{var count15 = 1;}
+var strlen16 = (this.comments.latest16 && this.comments.latest16.comment ? this.comments.latest16.comment.replace(/\n/gi, '')  : '');if(strlen16 == ''){var count16= 0;}else{var count16 = 1;}
+var strlen17 = (this.comments.latest17 && this.comments.latest17.comment ? this.comments.latest17.comment.replace(/\n/gi, '')  : '');if(strlen17 == ''){var count17= 0;}else{var count17 = 1;}
+var strlen18 = (this.comments.latest18 && this.comments.latest18.comment ? this.comments.latest18.comment.replace(/\n/gi, '')  : '');if(strlen18 == ''){var count18= 0;}else{var count18 = 1;}
+var strlen19 = (this.comments.latest19 && this.comments.latest19.comment ? this.comments.latest19.comment.replace(/\n/gi, '')  : '');if(strlen19 == ''){var count19= 0;}else{var count19 = 1;}
+var strlen20 = (this.comments.latest20 && this.comments.latest20.comment ? this.comments.latest20.comment.replace(/\n/gi, '')  : '');if(strlen20 == ''){var count20= 0;}else{var count20 = 1;}
+var strlen21 = (this.comments.latest21 && this.comments.latest21.comment ? this.comments.latest21.comment.replace(/\n/gi, '')  : '');if(strlen21 == ''){var count21= 0;}else{var count21 = 1;}
+var strlen22 = (this.comments.latest22 && this.comments.latest22.comment ? this.comments.latest22.comment.replace(/\n/gi, '')  : '');if(strlen22 == ''){var count22= 0;}else{var count22 = 1;}
+var strlen23 = (this.comments.latest23 && this.comments.latest23.comment ? this.comments.latest23.comment.replace(/\n/gi, '')  : '');if(strlen23 == ''){var count23= 0;}else{var count23 = 1;}
+var strlen24 = (this.comments.latest24 && this.comments.latest24.comment ? this.comments.latest24.comment.replace(/\n/gi, '')  : '');if(strlen24 == ''){var count24= 0;}else{var count24 = 1;}
+var strlen25 = (this.comments.latest25 && this.comments.latest25.comment ? this.comments.latest25.comment.replace(/\n/gi, '')  : '');if(strlen25 == ''){var count25= 0;}else{var count25 = 1;}
+var strlen26 = (this.comments.latest26 && this.comments.latest26.comment ? this.comments.latest26.comment.replace(/\n/gi, '')  : '');if(strlen26 == ''){var count26= 0;}else{var count26 = 1;}
+var strlen27 = (this.comments.latest27 && this.comments.latest27.comment ? this.comments.latest27.comment.replace(/\n/gi, '')  : '');if(strlen27 == ''){var count27= 0;}else{var count27 = 1;}
+var strlen28 = (this.comments.latest28 && this.comments.latest28.comment ? this.comments.latest28.comment.replace(/\n/gi, '')  : '');if(strlen28 == ''){var count28= 0;}else{var count28 = 1;}
+var strlen29 = (this.comments.latest29 && this.comments.latest29.comment ? this.comments.latest29.comment.replace(/\n/gi, '')  : '');if(strlen29 == ''){var count29= 0;}else{var count29 = 1;}
+var strlen30 = (this.comments.latest30 && this.comments.latest30.comment ? this.comments.latest30.comment.replace(/\n/gi, '')  : '');if(strlen30 == ''){var count30= 0;}else{var count30 = 1;}
+var strlen31 = (this.comments.latest31 && this.comments.latest31.comment ? this.comments.latest31.comment.replace(/\n/gi, '')  : '');if(strlen31 == ''){var count31= 0;}else{var count31 = 1;}
+var strlen32 = (this.comments.latest32 && this.comments.latest32.comment ? this.comments.latest32.comment.replace(/\n/gi, '')  : '');if(strlen32 == ''){var count32= 0;}else{var count32 = 1;}
+var strlen33 = (this.comments.latest33 && this.comments.latest33.comment ? this.comments.latest33.comment.replace(/\n/gi, '')  : '');if(strlen33 == ''){var count33= 0;}else{var count33 = 1;}
+var strlen34 = (this.comments.latest34 && this.comments.latest34.comment ? this.comments.latest34.comment.replace(/\n/gi, '')  : '');if(strlen34 == ''){var count34= 0;}else{var count34 = 1;}
+var strlen35 = (this.comments.latest35 && this.comments.latest35.comment ? this.comments.latest35.comment.replace(/\n/gi, '')  : '');if(strlen35 == ''){var count35= 0;}else{var count35 = 1;}
+var strlen36 = (this.comments.latest36 && this.comments.latest36.comment ? this.comments.latest36.comment.replace(/\n/gi, '')  : '');if(strlen36 == ''){var count36= 0;}else{var count36 = 1;}
+var strlen37 = (this.comments.latest37 && this.comments.latest37.comment ? this.comments.latest37.comment.replace(/\n/gi, '')  : '');if(strlen37 == ''){var count37= 0;}else{var count37 = 1;}
+var strlen38 = (this.comments.latest38 && this.comments.latest38.comment ? this.comments.latest38.comment.replace(/\n/gi, '')  : '');if(strlen38 == ''){var count38= 0;}else{var count38 = 1;}
+var strlen39 = (this.comments.latest39 && this.comments.latest39.comment ? this.comments.latest39.comment.replace(/\n/gi, '')  : '');if(strlen39 == ''){var count39= 0;}else{var count39 = 1;}
+var strlen40 = (this.comments.latest40 && this.comments.latest40.comment ? this.comments.latest40.comment.replace(/\n/gi, '')  : '');if(strlen40 == ''){var count40= 0;}else{var count40 = 1;}
+var strlen41 = (this.comments.latest41 && this.comments.latest41.comment ? this.comments.latest41.comment.replace(/\n/gi, '')  : '');if(strlen41 == ''){var count41= 0;}else{var count41 = 1;}
+var strlen42 = (this.comments.latest42 && this.comments.latest42.comment ? this.comments.latest42.comment.replace(/\n/gi, '')  : '');if(strlen42 == ''){var count42= 0;}else{var count42 = 1;}
+var strlen43 = (this.comments.latest43 && this.comments.latest43.comment ? this.comments.latest43.comment.replace(/\n/gi, '')  : '');if(strlen43 == ''){var count43= 0;}else{var count43 = 1;}
+var strlen44 = (this.comments.latest44 && this.comments.latest44.comment ? this.comments.latest44.comment.replace(/\n/gi, '')  : '');if(strlen44 == ''){var count44= 0;}else{var count44 = 1;}
+var strlen45 = (this.comments.latest45 && this.comments.latest45.comment ? this.comments.latest45.comment.replace(/\n/gi, '')  : '');if(strlen45 == ''){var count45= 0;}else{var count45 = 1;}
+var strlen46 = (this.comments.latest46 && this.comments.latest46.comment ? this.comments.latest46.comment.replace(/\n/gi, '')  : '');if(strlen46 == ''){var count46= 0;}else{var count46 = 1;}
+var strlen47 = (this.comments.latest47 && this.comments.latest47.comment ? this.comments.latest47.comment.replace(/\n/gi, '')  : '');if(strlen47 == ''){var count47= 0;}else{var count47 = 1;}
+var strlen48 = (this.comments.latest48 && this.comments.latest48.comment ? this.comments.latest48.comment.replace(/\n/gi, '')  : '');if(strlen48 == ''){var count48= 0;}else{var count48 = 1;}
+var strlen49 = (this.comments.latest49 && this.comments.latest49.comment ? this.comments.latest49.comment.replace(/\n/gi, '')  : '');if(strlen49 == ''){var count49= 0;}else{var count49 = 1;}
+var strlen50 = (this.comments.latest50 && this.comments.latest50.comment ? this.comments.latest50.comment.replace(/\n/gi, '')  : '');if(strlen50 == ''){var count50= 0;}else{var count50 = 1;}
+var strlen51 = (this.comments.latest51 && this.comments.latest51.comment ? this.comments.latest51.comment.replace(/\n/gi, '')  : '');if(strlen51 == ''){var count51= 0;}else{var count51 = 1;}
+var strlen52 = (this.comments.latest52 && this.comments.latest52.comment ? this.comments.latest52.comment.replace(/\n/gi, '')  : '');if(strlen52 == ''){var count52= 0;}else{var count52 = 1;}
+var strlen53 = (this.comments.latest53 && this.comments.latest53.comment ? this.comments.latest53.comment.replace(/\n/gi, '')  : '');if(strlen53 == ''){var count53= 0;}else{var count53 = 1;}
+var strlen54 = (this.comments.latest54 && this.comments.latest54.comment ? this.comments.latest54.comment.replace(/\n/gi, '')  : '');if(strlen54 == ''){var count54= 0;}else{var count54 = 1;}
+var strlen55 = (this.comments.latest55 && this.comments.latest55.comment ? this.comments.latest55.comment.replace(/\n/gi, '')  : '');if(strlen55 == ''){var count55= 0;}else{var count55 = 1;}
+var strlen56 = (this.comments.latest56 && this.comments.latest56.comment ? this.comments.latest56.comment.replace(/\n/gi, '')  : '');if(strlen56 == ''){var count56= 0;}else{var count56 = 1;}
+var strlen57 = (this.comments.latest57 && this.comments.latest57.comment ? this.comments.latest57.comment.replace(/\n/gi, '')  : '');if(strlen57 == ''){var count57= 0;}else{var count57 = 1;}
+var strlen58 = (this.comments.latest58 && this.comments.latest58.comment ? this.comments.latest58.comment.replace(/\n/gi, '')  : '');if(strlen58 == ''){var count58= 0;}else{var count58 = 1;}
+var strlen59 = (this.comments.latest59 && this.comments.latest59.comment ? this.comments.latest59.comment.replace(/\n/gi, '')  : '');if(strlen59 == ''){var count59= 0;}else{var count59 = 1;}
+var strlen60 = (this.comments.latest60 && this.comments.latest60.comment ? this.comments.latest60.comment.replace(/\n/gi, '')  : '');if(strlen60 == ''){var count60= 0;}else{var count60 = 1;}
+var strlen61 = (this.comments.latest61 && this.comments.latest61.comment ? this.comments.latest61.comment.replace(/\n/gi, '')  : '');if(strlen61 == ''){var count61= 0;}else{var count61 = 1;}
+var strlen62 = (this.comments.latest62 && this.comments.latest62.comment ? this.comments.latest62.comment.replace(/\n/gi, '')  : '');if(strlen62 == ''){var count62= 0;}else{var count62 = 1;}
+var strlen63 = (this.comments.latest63 && this.comments.latest63.comment ? this.comments.latest63.comment.replace(/\n/gi, '')  : '');if(strlen63 == ''){var count63= 0;}else{var count63 = 1;}
+var strlen64 = (this.comments.latest64 && this.comments.latest64.comment ? this.comments.latest64.comment.replace(/\n/gi, '')  : '');if(strlen64 == ''){var count64= 0;}else{var count64 = 1;}
+var strlen65 = (this.comments.latest65 && this.comments.latest65.comment ? this.comments.latest65.comment.replace(/\n/gi, '')  : '');if(strlen65 == ''){var count65= 0;}else{var count65 = 1;}
+var strlen66 = (this.comments.latest66 && this.comments.latest66.comment ? this.comments.latest66.comment.replace(/\n/gi, '')  : '');if(strlen66 == ''){var count66= 0;}else{var count66 = 1;}
+var strlen67 = (this.comments.latest67 && this.comments.latest67.comment ? this.comments.latest67.comment.replace(/\n/gi, '')  : '');if(strlen67 == ''){var count67= 0;}else{var count67 = 1;}
+var strlen68 = (this.comments.latest68 && this.comments.latest68.comment ? this.comments.latest68.comment.replace(/\n/gi, '')  : '');if(strlen68 == ''){var count68= 0;}else{var count68 = 1;}
+var strlen69 = (this.comments.latest69 && this.comments.latest69.comment ? this.comments.latest69.comment.replace(/\n/gi, '')  : '');if(strlen69 == ''){var count69= 0;}else{var count69 = 1;}
+var strlen70 = (this.comments.latest70 && this.comments.latest70.comment ? this.comments.latest70.comment.replace(/\n/gi, '')  : '');if(strlen70 == ''){var count70= 0;}else{var count70 = 1;}
+var strlen71 = (this.comments.latest71 && this.comments.latest71.comment ? this.comments.latest71.comment.replace(/\n/gi, '')  : '');if(strlen71 == ''){var count71= 0;}else{var count71 = 1;}
+var strlen72 = (this.comments.latest72 && this.comments.latest72.comment ? this.comments.latest72.comment.replace(/\n/gi, '')  : '');if(strlen72 == ''){var count72= 0;}else{var count72 = 1;}
+var strlen73 = (this.comments.latest73 && this.comments.latest73.comment ? this.comments.latest73.comment.replace(/\n/gi, '')  : '');if(strlen73 == ''){var count73= 0;}else{var count73 = 1;}
+var strlen74 = (this.comments.latest74 && this.comments.latest74.comment ? this.comments.latest74.comment.replace(/\n/gi, '')  : '');if(strlen74 == ''){var count74= 0;}else{var count74 = 1;}
+var strlen75 = (this.comments.latest75 && this.comments.latest75.comment ? this.comments.latest75.comment.replace(/\n/gi, '')  : '');if(strlen75 == ''){var count75= 0;}else{var count75 = 1;}
+var strlen76 = (this.comments.latest76 && this.comments.latest76.comment ? this.comments.latest76.comment.replace(/\n/gi, '')  : '');if(strlen76 == ''){var count76= 0;}else{var count76 = 1;}
+var strlen77 = (this.comments.latest77 && this.comments.latest77.comment ? this.comments.latest77.comment.replace(/\n/gi, '')  : '');if(strlen77 == ''){var count77= 0;}else{var count77 = 1;}
+var strlen78 = (this.comments.latest78 && this.comments.latest78.comment ? this.comments.latest78.comment.replace(/\n/gi, '')  : '');if(strlen78 == ''){var count78= 0;}else{var count78 = 1;}
+var strlen79 = (this.comments.latest79 && this.comments.latest79.comment ? this.comments.latest79.comment.replace(/\n/gi, '')  : '');if(strlen79 == ''){var count79= 0;}else{var count79 = 1;}
+var strlen80 = (this.comments.latest80 && this.comments.latest80.comment ? this.comments.latest80.comment.replace(/\n/gi, '')  : '');if(strlen80 == ''){var count80= 0;}else{var count80 = 1;}
+
+
+var counttot = count0 + count1 + count2 +count3 +count4 +count5 +count6 +count7 +count8 +count9 +count10 +count11 +count12 +count13 +count14 +count15 +count16 +count17 +count18 +count19 +count20 +count21 +count22 +count23 +count24 +count25 +count26 +count27 +count28 +count29 +count30 +count31 +count32 +count33 +count34 +count35 +count36 +count37 +count38 +count39 +count40 +count41 +count42 +count43 +count44 +count45 +count46 +count47 +count48 +count49 +count50 +count51 +count52 +count53 +count54 +count55 +count56 +count57 +count58 +count59 +count60 +count61 +count62 +count63 +count64 +count65 +count66 +count67 +count68 +count69 +count70 +count71 +count72 +count73 +count74 +count75 +count76 +count77 +count78 +count79 +count80;
+
+var totalstr = strlen0 + strlen1 + strlen2 +strlen3 +strlen4 +strlen5 +strlen6 +strlen7 +strlen8 +strlen9 +strlen10 +strlen11 +strlen12 +strlen13 +strlen14 +strlen15 +strlen16 +strlen17 +strlen18 +strlen19 +strlen20 +strlen21 +strlen22 +strlen23 +strlen24 +strlen25 +strlen26 +strlen27 +strlen28 +strlen29 +strlen30 +strlen31 +strlen32 +strlen33 +strlen34 +strlen35 +strlen36 +strlen37 +strlen38 +strlen39 +strlen40 +strlen41 +strlen42 +strlen43 +strlen44 +strlen45 +strlen46 +strlen47 +strlen48 +strlen49 +strlen50 +strlen51 +strlen52 +strlen53 +strlen54 +strlen55 +strlen56 +strlen57 +strlen58 +strlen59 +strlen60 +strlen61 +strlen62 +strlen63 +strlen64 +strlen65 +strlen66 +strlen67 +strlen68 +strlen69 +strlen70 +strlen71 +strlen72 +strlen73 +strlen74 +strlen75 +strlen76 +strlen77 +strlen78 +strlen79 +strlen80;
+
+//var strlenno = totalstr.replace(/\s+\b/gi, '').length;
+var strlenno = totalstr.length;
+
+//if(this.comments.total < 80){var strlenf = strlenno/this.comments.total}else{var strlenf = strlenno/80}
+
+var html 		= ['<th><img src="'+this.img+'" title="'+this.title+' logo" width="16" height="16" /></th>'];
 			html.push('<th><div class="link"><a '+(this.author ? 'title="By '+this.author+'"' : '') + ' target="_blank" href="https://chrome.google.com/extensions/detail/'+this.hash+'">' + this.title + '</a></th>');
 			//</div><div class="version">V: ' + this.version + (versionDT ? '<dt>' + versionDT + '</dt>' : '')+'</div></th>');
-			html.push('<td><em class="foo" onclick="Ext.remove(\''+this.hash+'\')">Remove</em></td>');
+			html.push('<td><em class="foo" onclick="Ext.remove(\''+this.hash+'\')">Remove</em></td><br /><br /><ul class="a"><li>Number of Footprints (Reviews + Ratings)<br />Number of Reviews<br />Number of Ratings<br />Number of Users<br />Probability of a Footprint<br />Probability of a Review<br />Probability of a Rating<br />Average size of a review</li><li><ul class="h"><li>'+(this.comments.total+this.ratings.total)+'</li><li>'+this.comments.total+'</li><li>'+this.ratings.total+'</li><li>'+this.users.total+'</li><li>'+Math.round(((this.comments.total+this.ratings.total)/this.users.total)*10000)/100+'%</li><li>'+Math.round((this.comments.total/this.users.total)*10000)/100+'%</li><li>'+Math.round((this.ratings.total/this.users.total)*10000)/100+'%</li><li>'+Math.round(strlenno/counttot)+' characters</li></ul></li></ul></td></tr>');
 			row.setHTML(html.join('\n')).injectIn(tbody)		 	
 		 	
 		}
@@ -1453,6 +1552,8 @@ Ext.Extension = new Class({
 					console.log(this.img)
 					this.title 		= matches[2];
 					this.author		= matches[3].trim().replace(/\)$/, '');
+                                        this.nbusers            = matches[4];
+					//var ratio = 
 					
 					// CHANGED: 16.01.2010
 					// Those changes are mae in order to support down/up references.
@@ -1642,21 +1743,106 @@ Ext.Extension = new Class({
 			},
 			
 			'parameters'	: {
-				'req'		: JSON.stringify({'searchSpecs' :  [{'entities' : entities, 'groups' : ['public_comment'], 'matchExtraGroups' : true, 'startIndex' : 0, 'numResults' : 80, 'includeNickNames' : true}], 'applicationId' : 94 }) + '&requestSource=widget'
+				'req'		: JSON.stringify({'searchSpecs' :  [{'entities' : entities, 'groups' : ['public_comment'], 'matchExtraGroups' : true,"sortBy":"quality", 'startIndex' : 0, 'numResults' : 80, 'includeNickNames' : true}], 'applicationId' : 94 }) + '&requestSource=widget'
 			},
 			
 			'onSuccess'		: function(xhr) {
 				var json = xhr.responseJSON;
 				if(json && json.searchResults ) {
 					this.comments = {
-						'total' 			: Number(json.searchResults[0].numAnnotations.toString().replace(/,/, '').toInt()),
-						'latest'			: json.searchResults[0].annotations ? json.searchResults[0].annotations[0] :{},
-						'previous'			: this.comments.total || null,
-						'latestPrevious' 	: $merge(this.comments.latest) || null,
-						'new'					: this.comments['new'] || false
+
+'total' 			: Number(json.searchResults[0].numAnnotations.toString().replace(/,/, '').toInt()),
+'latest'			: json.searchResults[0].annotations ? json.searchResults[0].annotations[0] :{},
+'latest0'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[0] :{},
+'latest1'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[1] :{},
+'latest2'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[2] :{},
+'latest3'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[3] :{},
+'latest4'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[4] :{},
+'latest5'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[5] :{},
+'latest6'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[6] :{},
+'latest7'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[7] :{},
+'latest8'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[8] :{},
+'latest9'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[9] :{},
+'latest10'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[10] :{},
+'latest11'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[11] :{},
+'latest12'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[12] :{},
+'latest13'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[13] :{},
+'latest14'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[14] :{},
+'latest15'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[15] :{},
+'latest16'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[16] :{},
+'latest17'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[17] :{},
+'latest18'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[18] :{},
+'latest19'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[19] :{},
+'latest20'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[20] :{},
+'latest21'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[21] :{},
+'latest22'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[22] :{},
+'latest23'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[23] :{},
+'latest24'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[24] :{},
+'latest25'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[25] :{},
+'latest26'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[26] :{},
+'latest27'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[27] :{},
+'latest28'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[28] :{},
+'latest29'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[29] :{},
+'latest30'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[30] :{},
+'latest31'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[31] :{},
+'latest32'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[32] :{},
+'latest33'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[33] :{},
+'latest34'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[34] :{},
+'latest35'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[35] :{},
+'latest36'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[36] :{},
+'latest37'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[37] :{},
+'latest38'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[38] :{},
+'latest39'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[39] :{},
+'latest40'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[40] :{},
+'latest41'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[41] :{},
+'latest42'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[42] :{},
+'latest43'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[43] :{},
+'latest44'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[44] :{},
+'latest45'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[45] :{},
+'latest46'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[46] :{},
+'latest47'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[47] :{},
+'latest48'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[48] :{},
+'latest49'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[49] :{},
+'latest50'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[50] :{},
+'latest51'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[51] :{},
+'latest52'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[52] :{},
+'latest53'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[53] :{},
+'latest54'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[54] :{},
+'latest55'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[55] :{},
+'latest56'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[56] :{},
+'latest57'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[57] :{},
+'latest58'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[58] :{},
+'latest59'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[59] :{},
+'latest60'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[60] :{},
+'latest61'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[61] :{},
+'latest62'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[62] :{},
+'latest63'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[63] :{},
+'latest64'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[64] :{},
+'latest65'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[65] :{},
+'latest66'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[66] :{},
+'latest67'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[67] :{},
+'latest68'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[68] :{},
+'latest69'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[69] :{},
+'latest70'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[70] :{},
+'latest71'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[71] :{},
+'latest72'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[72] :{},
+'latest73'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[73] :{},
+'latest74'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[74] :{},
+'latest75'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[75] :{},
+'latest76'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[76] :{},
+'latest77'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[77] :{},
+'latest78'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[78] :{},
+'latest79'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[79] :{},
+'latest80'   : json.searchResults[0].annotations ? json.searchResults[0].annotations[80] :{},
+
+'previous'			: this.comments.total || null,
+'latestPrevious' 	        : $merge(this.comments.latest) || null,
+'new'					: this.comments['new'] || false
 					}	
 
-					
+
+
+
 					// New comment
 					// TODO: Check counter
 					if(this.comments.latest && this.comments.latest.timestamp && this.comments.latestPrevious && this.comments.latestPrevious.timestamp  && (this.comments.latest.timestamp != this.comments.latestPrevious.timestamp)) {
@@ -1713,6 +1899,10 @@ Ext.Extension = new Class({
 		
 		return this;
 	},
+
+
+
+
 	
 	getRanking		: function() {
 		Ext.XHR['ranking'] = new Ajax({
@@ -2120,4 +2310,3 @@ Ajax.setOptions({
 		//console.log('Timing out');
 	}
 });
-
